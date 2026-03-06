@@ -21,12 +21,12 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: "21"
+          java-version: "11"
 
       - name: Compile sources
         run: |
           mkdir -p out
-          javac -d out src/main/java/com/mlock/dni/*.java
+          javac --release 11 -d out src/main/java/com/mlock/dni/*.java
 
       - name: Package executable JAR
         run: |
