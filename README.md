@@ -10,3 +10,21 @@ Además, se introduce el uso de GitHub Copilot como asistente de programación e
 
 - Marco Molins
 - Marcos Jimenez
+
+## Mini proyecto Java: autenticador de DNI
+
+Se ha anadido un mini proyecto en Java que valida DNIs espanoles y comprueba si estan autorizados.
+
+### Estructura
+
+- `src/main/java/com/mlock/dni/DniValidator.java`: valida formato y letra del DNI.
+- `src/main/java/com/mlock/dni/DniAuthenticator.java`: autentica contra un listado de DNIs autorizados.
+- `src/main/java/com/mlock/dni/Main.java`: aplicacion de consola para probar autenticacion.
+
+### Compilar y ejecutar (PowerShell)
+
+```powershell
+New-Item -ItemType Directory -Force out
+javac -d out src/main/java/com/mlock/dni/*.java
+java -cp out com.mlock.dni.Main
+```
