@@ -28,3 +28,8 @@ New-Item -ItemType Directory -Force out
 javac -d out src/main/java/com/mlock/dni/*.java
 java -cp out com.mlock.dni.Main
 ```
+
+## Wiki breve
+
+- Inicio: `docs/wiki/Home.md`
+- Guia de la app DNI: `docs/wiki/Aplicacion-DNI.md`
