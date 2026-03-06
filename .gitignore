@@ -3,3 +3,8 @@ Proyecto-DSS_25-26.code-workspace
 
 # (Opcional) Ignorar cualquier workspace de VS Code
 # *.code-workspace
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
