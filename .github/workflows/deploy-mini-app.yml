@@ -1,0 +1,38 @@
+name: Deploy Mini Java App
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+
+      - name: Compile sources
+        run: |
+          mkdir -p out
+          javac -d out src/main/java/com/mlock/dni/*.java
+
+      - name: Package executable JAR
+        run: |
+          mkdir -p dist
+          jar --create --file dist/dni-authenticator.jar --main-class com.mlock.dni.Main -C out .
+
+      - name: Upload deployment artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dni-authenticator-jar
+          path: dist/dni-authenticator.jar
+          if-no-files-found: error
+          retention-days: 14
