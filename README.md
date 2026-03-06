@@ -25,11 +25,20 @@ Se ha anadido un mini proyecto en Java que valida DNIs espanoles y comprueba si 
 
 ```powershell
 New-Item -ItemType Directory -Force out
-javac -d out src/main/java/com/mlock/dni/*.java
+javac --release 11 -d out src/main/java/com/mlock/dni/*.java
 java -cp out com.mlock.dni.Main
 ```
 
-## Wiki breve
+### Ejecutar con Maven (recomendado)
 
-- Inicio: `docs/wiki/Home.md`
-- Guia de la app DNI: `docs/wiki/Aplicacion-DNI.md`
+```powershell
+mvn clean test
+mvn package
+java -jar target/dni-authenticator-1.0.0.jar
+```
+
+### Tests automaticos
+
+- Los tests unitarios estan en `src/test/java/com/mlock/dni/`.
+- GitHub Actions ejecuta `mvn -B test` en cada push y pull request a `main`.
+- Workflow: `.github/workflows/ci-tests.yml`.

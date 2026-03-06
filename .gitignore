@@ -3,3 +3,9 @@ Proyecto-DSS_25-26.code-workspace
 
 # (Opcional) Ignorar cualquier workspace de VS Code
 # *.code-workspace
+
+# Maven output
+target/
+
+# Temporary local folder used for wiki sync attempts
+.wiki-temp/
